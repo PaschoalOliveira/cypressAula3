@@ -13,17 +13,8 @@ Funcionalidade: Solicitar lançamento de efluente
       E preencho os dados
       Então a solicitação é "<resposta>"    
       Exemplos:
-        | novo do efluente | volume (em L) | local de lançamento  | resposta  | 
-        | efluente X       | 250           | Rua do Não Faça Isso | realizada |
-    #Regra: A solicitação só é realizada se o local de lançamento estiver no sistema
-    Esquema do Cenário: Solicitar lançamento de efluente em regiões não cadastradas
-      Dado que acesse o software 
-      E autentique meu usuário
-      Quando clico em Nova Solicitação de Lançamento
-      E preencho os dados
-      Então a solicitação é "<resposta>"    
-      Exemplos:
         | novo do efluente | volume (em L) | local de lançamento    | resposta        | 
+        | efluente X       | 250           | Rua do Não Faça Isso   | realizada       |
         | efluente Y       | 110           | Rua do Jogue no centro | não é realizada |
     #Regra: Apenas solicitações não autorizadas podem ser editadas 
     #RN: O volume limite é de 200l
@@ -31,7 +22,7 @@ Funcionalidade: Solicitar lançamento de efluente
       Dado que acesse o software 
       E autentique meu usuário
       Quando clico em Editar Solicitação de Lançamento X
-      E preencho os dados
+      E edito os dados
       Então a solicitação é "<resposta>"    
       Exemplos:
         | novo do efluente | volume (em L) | local de lançamento  | resposta | 

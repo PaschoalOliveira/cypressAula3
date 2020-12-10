@@ -4,17 +4,19 @@ Funcionalidade: Autorizar ou reprovar lançamento de efluentes
    DESEJO autorizar ou reprovar as requisições de lançamento de efluente
    PARA atender as diretrizes da empresa
 
+   Background: Dado que o usuário foi autenticado 
+
    # Apenas o líder de projetos pode consultar, autorizar ou reprovar solicitações
    #Regra: Consultar as requisições de tratamento
    Cenário: Consultar as requisições feitas
-      Dado Dado que acesse o software 
-      E autentique meu usuário
+      #Dado Dado que acesse o software 
+      #E autentique meu usuário
       Quando clico em Requisições
       Então verifico a lista de requisições realizadas       
    #Regra: É possível aprovar as requisições de tratamento
    Esquema do Cenário: Aprovar lançamento de efluente
       Dado que acesse o software 
-      E autentique meu usuário
+      #E autentique meu usuário
       Quando clico em Requisições
       E seleciono a opção Aprovar
       Então a solicitação é "<resultado>"    
