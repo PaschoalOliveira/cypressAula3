@@ -4,39 +4,34 @@ Funcionalidade: Autorizar ou reprovar lançamento de efluentes
    DESEJO autorizar ou reprovar as requisições de lançamento de efluente
    PARA atender as diretrizes da empresa
 
-   Background: Dado que o usuário foi autenticado 
-
-   # Apenas o líder de projetos pode consultar, autorizar ou reprovar solicitações
+   Contexto: 
+   Dado que o usuário foi autenticado 
+   Quando clico em Requisições
+	
    #Regra: Consultar as requisições de tratamento
+   @consultarRequisicao
    Cenário: Consultar as requisições feitas
-      #Dado Dado que acesse o software 
-      #E autentique meu usuário
-      Quando clico em Requisições
-      Então verifico a lista de requisições realizadas       
+   Então verifico a lista de requisições realizadas  
    #Regra: É possível aprovar as requisições de tratamento
+   @aprovarRequisicao
    Esquema do Cenário: Aprovar lançamento de efluente
-      Dado que acesse o software 
-      #E autentique meu usuário
-      Quando clico em Requisições
-      E seleciono a opção Aprovar
+      E seleciono Aprovar
       Então a solicitação é "<resultado>"    
       Exemplos:
-        | novo do efluente | volume (em L) | local de lançamento  | resultado | 
+        | nome do efluente | volume (em L) | local de lançamento  | resultado | 
         | efluente X       | 250           | Rua do Não Faça Isso | aprovada  |
    #Regra: É possível reprovar as requisições de tratamento
-   Esquema do Cenário: SReprovar lançamento de efluente
-      Dado que acesse o software 
-      E autentique meu usuário
-      Quando clico em Requisições
-      E seleciono a opção Reprovar
+   @reprovarRequisicao
+   Esquema do Cenário: Reprovar lançamento de efluente
+      E seleciono Reprovar
       Então a solicitação é "<resultado>"    
       Exemplos:
-        | novo do efluente | volume (em L) | local de lançamento | resultado  | 
-        | efluente 22      | 100           | Rua do Aqui Pode    | reprovada  |
-   #Regra: Requisições de tratamento realizadas ficam desabilitadas 
-   #Cenário: Requisições concluídas são desabilitadas
-      #Dado que acesse o software 
-      #E autentique meu usuário
-      #Quando clico em Requisições
-      #E verifico a lista 
-      #Então 
+        | nome do efluente | volume (em L) | local de lançamento | resultado  | 
+        | efluente 22      | 100           | Rua do Aqui Pode    | reprovada  |	
+   #Regra: O cliente é notificado quando a requisição é aprovada 
+   @notificacaoRequisicao
+   Cenário: Cliente notificado quando a requisição é aprovada
+      E aprovo uma requisição
+      Então o cliente é notificado
+
+   
