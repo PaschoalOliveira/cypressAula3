@@ -46,10 +46,11 @@ Scenario Outline: Checar validade do CNPJ
     Then é exibida mensagem de "<validacao>"
 
 #RN05: A natureza do ato deve ser igual ao que foi selecionado
+Scenario: Checar natureza do ato
     Then a natureza do ato é exibida corretamente 
 
-
 #RN06: O valor deve corresponder ao que foi selecionado
+Scenario: Checar valor do ato
     Then o valor do ato é exibido corretamente
 
 #RN07: É possível emitir DAJE complementar
