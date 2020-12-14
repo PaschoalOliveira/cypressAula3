@@ -54,6 +54,17 @@ Scenario: Checar valor do ato
     Then o valor do ato é exibido corretamente
 
 #RN07: É possível emitir DAJE complementar
+Scenario Outline: Emitir DAJE complementar
+And seleciono DAJE complementar
+And preeencho "<Código do Emissor>", "<Série>", "<Nº DAJE>"
+And pesquiso
+Then seleciono o tipo de ato
+And verifico se o valor do ato selecionado é superior ao valor do DAJE principal
+And concluo a operação
+And verifico pela mensagem de sucesso "<Mensagem de sucesso>"
+Examples:
+   | Código do Emissor | Série | Nº DAJE | Mensagem de sucesso        |
+   | 12345884689942751 | 15487 | 5484699 | Registro Salvo com sucesso |
 
 #RN08: É necessário aparecer lista de decretos
-
+Then procuro por registro civil na lista de decretos
