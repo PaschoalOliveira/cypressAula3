@@ -40,9 +40,9 @@ Feature: Fale conosco
     Scenario: Validar se o campo do email cumpre os requisitos
      And se dirigir à seção "Fale Conosco"
      When preencho as informações de forma incorreta
-            | nome       | email                 | assunto | mensagem                       | mensagemError                                                               |
-            | Perry      | ornitorrinco          | Pedido  | Pedido de atestado medico      | Inclua um "@" no endereço de e-mail. ornitorrinco está com um "@" faltando. |
-            | Anel       | Anel@                 | Licensa | Licenciatura para usar o mouse | Insira uma parte depois de "@". anel@ está incompleto.                      |
+            | nome  | email        | assunto | mensagem                       | mensagemError                                                               |
+            | Perry | ornitorrinco | Pedido  | Pedido de atestado medico      | Inclua um "@" no endereço de e-mail. ornitorrinco está com um "@" faltando. |
+            | Anel  | Anel@        | Licensa | Licenciatura para usar o mouse | Insira uma parte depois de "@". anel@ está incompleto.                      |
      Then procuro pela mensagem de error
 
 
