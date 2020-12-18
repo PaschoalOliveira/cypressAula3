@@ -46,3 +46,25 @@ Feature: Comunicar vazamentos
         When tento enviar imagens do vazamento
         And avançar na solicitação
         Then a imagem aparece no resumo
+
+
+
+
+Feature: Visualizar Postos de Atendimento
+    
+    COMO cidadão
+    DESEJO visualizar os postos de atendimento da EMBASA
+    PARA saber o endereço dos postos de atendimento
+
+
+    Background: Acesso à agência virtual da Embasa
+        Given o acesso à agência virtual da Embasa
+        And o acesso a seção "Posto de Atendimento"
+        
+    #RN01: É possível visualizar postos de atendimento
+    Scenario: Exibir Postos de Atendimento
+        When selecionar a "cidade"
+          | cidade              |
+          | Amargosa            |  
+        Then é exibido os Postos de Atendimento     
+
