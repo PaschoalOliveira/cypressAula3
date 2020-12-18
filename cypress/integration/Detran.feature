@@ -26,6 +26,26 @@ Feature: Fale conosco
         Then a mensagem é visualizada
     
     #RN03: É necessário preencher campos obrigatórios
+    Scenario: Validar se os campos cumprem os requisitos
+     And se dirigir à seção "Fale Conosco"
+     When preencho as informações de forma incorreta
+            | nome       | email                 | assunto | mensagem                        | mensagemError        |
+            |            | joao@email.com        | Demora  | Cade a entrega de documentos    | Preencha este campo. |
+            | Pedro      |                       | Pedido  | Pedir para correr               | Preencha este campo. |
+            | Gustavo    | gustavo@email.com     |         | Perdi os documentos solicitados | Preencha este campo. |
+            | Celebmuveu | onering@mordor.com.nz | Licensa |                                 | Preencha este campo. |
+     Then procuro pela mensagem de error
+
+    #RN04: É necessário preencher o email corretamente
+    Scenario: Validar se o campo do email cumpre os requisitos
+     And se dirigir à seção "Fale Conosco"
+     When preencho as informações de forma incorreta
+            | nome       | email                 | assunto | mensagem                       | mensagemError                                                               |
+            | Perry      | ornitorrinco          | Pedido  | Pedido de atestado medico      | Inclua um "@" no endereço de e-mail. ornitorrinco está com um "@" faltando. |
+            | Anel       | Anel@                 | Licensa | Licenciatura para usar o mouse | Insira uma parte depois de "@". anel@ está incompleto.                      |
+     Then procuro pela mensagem de error
+
+
 Feature: Serviços
 
     COMO cidadão
