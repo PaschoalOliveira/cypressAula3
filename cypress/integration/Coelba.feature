@@ -59,7 +59,7 @@ Feature: Irregularidade
             |  Rua J   | 08     | Boa Vista | Salvador | perto da escola X   | Estão fazendo gato na minha energia|
 
 #RN02 Denunciar irregularidade
-     Scenario: Denunciando Irregularidade  
+    Scenario: Denunciando Irregularidade  
         When confirmar envio da mensagem
         Then é exibida uma mensagem de confirmação
         And é exibido o protocolo 
@@ -73,3 +73,20 @@ Feature: Irregularidade
         And é exibida a data da denúncia 
         And é exibido a seção imprimir
         And é exibido a seção para ser impressa 
+
+Feature: Locais de pagamento
+
+    COMO cidadão     
+    DESEJO saber os locais de pagamento próximos
+    PARA realizar pagamento 
+
+
+    Background: 
+        Given acesso ao sistema da COELBA
+        And acesso a seção de "Locais de pagamento"
+
+    Scenario: Vendo locais de pagamento
+        When preencho a localização
+            | cidade     | bairro          |
+            | Alagoinhas | Santa Terezinha |
+        Then eu consigo ver os locais de pagamento mais próximos
