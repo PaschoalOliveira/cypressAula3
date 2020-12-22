@@ -7,19 +7,20 @@ Feature: Fale conosco
     Background: 
         Given acesso ao sistema da COELBA
         And acesso a seção "Fale Conosco"
-
+    @focus
 #RN01: É possível solicitar nova ligação de Energia 
     Scenario: Solicitando Nova Ligação
         And preencher as informações pessoais
-            | contrato | nome        | e-mail               |
-            | 11765111 | Vilma Souza | vilminha@hotmail.com |
+            | contrato | nome        | telefone    | email               |
+            | 11765111 | Vilma Souza | 71912345678 | vilminha@hotmail.com |
         And preencher as informações de localização
             | cep       | estado  | endereco                     | cidade   | bairro |
-            | 41290-200 |  BA     | Rua da Marechal Souza, n° 22 | Salvador | Barra  |
-        And preencher a mensagem referente ao "<assunto>"
-            | assunto      | mensagem                                         |
-            | Ligação nova | Desejo uma nova ligação de energia no meu imóvel |
-        When confirmar envio da mensagem
+            | 41290-200 |  BA     | Rua da Marechal Souza, n° 22 | SALVADOR | BARRA  |
+        And preencher a mensagem referente ao "Ligação nova"
+            | mensagem                                         |
+            | Desejo uma nova ligação de energia no meu imóvel |
+        When validar as informações
+        And confirmar envio da mensagem
         Then é redirecionado para o Portal do Credenciado
 
 #RN02: É necessário preencher os campos que são obrigatórios 
@@ -36,9 +37,10 @@ Feature: Fale conosco
         And preencher as informações de localização
             | cep       | estado  | endereco                     | cidade   | bairro |
             | 41290-200 |  BA     | Rua da Marechal Souza, n° 22 | Salvador | Barra  |
-        And preencher a mensagem referente ao "<assunto>"
-            | assunto      | mensagem                                         |
-            | Ligação nova | Desejo uma nova ligação de energia no meu imóvel |
+        And preencher a mensagem referente ao "Ligação nova"
+            | mensagem                                         |
+            | Desejo uma nova ligação de energia no meu imóvel |
         And adicionar anexos
-        When confirmar envio da mensagem
+        When validar as informações
+        And confirmar envio da mensagem
         Then é redirecionado para o Portal do Credenciado

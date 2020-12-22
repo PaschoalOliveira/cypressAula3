@@ -7,9 +7,9 @@ Feature: Irregularidade
     Background: 
         Given acesso ao sistema da COELBA
         And acesso a seção de "Canais de Atendimento"
-        And acesso a seção de "Denúncia de Irregularidade - Gato de Energia"
+        And acesso a seção de "Denunciar Desvio de Energia"
         And preencher as informações
-            | Endereço | Número | Bairro    | Cidade   | Ponto de Referência | Texto para Denúncia                |
+            | Endereço | Número | Bairro    | Cidade   | Ponto_de_Referência | Texto_para_Denúncia                |
             |  Rua J   | 08     | Boa Vista | Salvador | perto da escola X   | Estão fazendo gato na minha energia|
 
 #RN02 Denunciar irregularidade
