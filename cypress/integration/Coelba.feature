@@ -83,10 +83,10 @@ Feature: Locais de pagamento
 
     Background: 
         Given acesso ao sistema da COELBA
-        And acesso a seção de "Locais de pagamento"
+        And acesso a seção Onde Pagar Sua Conta
 
     Scenario: Vendo locais de pagamento
         When preencho a localização
             | cidade     | bairro          |
             | Alagoinhas | Santa Terezinha |
-        Then eu consigo ver os locais de pagamento mais próximos
+        Then consigo ver os locais de pagamento mais próximos
