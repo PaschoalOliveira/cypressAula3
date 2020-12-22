@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "cypress": "^6.1.0",
     "jquery": "^3.5.1",
     "mocha": "^8.2.1"
   },
   "devDependencies": {
+    "cypress": "^6.2.0",
     "cypress-cucumber-preprocessor": "^4.0.0"
   },
   "scripts": {
