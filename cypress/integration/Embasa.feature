@@ -49,8 +49,7 @@ Feature: Comunicar vazamentos
 
 
 
-
-Feature: Visualizar Postos de Atendimento
+	Feature: Visualizar Postos de Atendimento
     
     COMO cidadão
     DESEJO visualizar os postos de atendimento da EMBASA
@@ -65,6 +64,7 @@ Feature: Visualizar Postos de Atendimento
     Scenario: Exibir Postos de Atendimento
         When selecionar a "cidade"
           | cidade              |
-          | Amargosa            |  
-        Then é exibido os Postos de Atendimento     
+          | Amargosa            | 
+		And avanço na busca
+        Then os Postos de Atendimento são exibidos    
 
