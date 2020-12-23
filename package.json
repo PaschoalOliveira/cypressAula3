@@ -9,7 +9,8 @@
   },
   "devDependencies": {
     "cypress": "^6.2.0",
-    "cypress-cucumber-preprocessor": "^4.0.0"
+    "cypress-cucumber-preprocessor": "^4.0.0",
+    "cypress-xpath": "^1.6.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
