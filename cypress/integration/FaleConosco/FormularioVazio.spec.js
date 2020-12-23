@@ -5,5 +5,5 @@ And('não se forneça nenhuma informação', () =>{
 })
 
 Then('são indicados os campos obrigatórios', () =>{
-    expect(inputID+'_txtName').to.have.css('background-color', 'rgb(255, 221, 221)')
+    cy.get('[require="true"]').should('have.length', 10)
 })
