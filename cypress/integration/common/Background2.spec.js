@@ -16,14 +16,13 @@ And('acesso a seção de {string}',secao => {
     .click({force:true})
 })
 And('preencher as informações', (dataTable) => {
-    //console.log(dataTable.hashes())
     dataTable.hashes().forEach(inf => {
 
         getIframeDOM().find('#end_logradouro').type(inf.Endereço)
         getIframeDOM().find('#end_numero').type(inf.Número)
-        /*cy.get('#end_bairro').type(inf.Bairro)
-        cy.get('#end_cidade').type(inf.Cidade)
-        cy.get('#ponto_referencia').type(inf.Ponto_de_Referência)
-        cy.get('#texto_denuncia').type(inf.Texto_para_Denúncia)*/
+        getIframeDOM().find('#end_bairro').type(inf.Bairro)
+        getIframeDOM().find('#end_cidade').type(inf.Cidade)
+        getIframeDOM().find('#ponto_referencia').type(inf.Ponto_de_Referência)
+        getIframeDOM().find('#texto_denuncia').type(inf.Texto_para_Denúncia)
     })
 })
