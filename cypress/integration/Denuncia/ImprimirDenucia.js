@@ -4,15 +4,16 @@ const getIframeDOM = () => {
             .its('body')
 }
 
-When("confirmar envio da mensagem", () =>{
+And("confirmar envio da mensagem", () =>{
     getIframeDOM().find('#btn_solicitar').click() 
 })
-
-Then("é exibida uma mensagem de confirmação, o protocolo e a data da denúncia", () => {
+And("é exibida uma mensagem de confirmação", () => {
     cy.get('body').wait(5000)
-    getIframeDOM().find('.neotd').contains('Protocolo')
-    getIframeDOM().find('.neotd').contains('Data')
     getIframeDOM().find('.neotdheader').should('have.text','\n\t\t\t\t\t\t\t\tDenúncia Registrada com Sucesso.\n\t\t\t\t\t\t\t')
-    //getIframeDOM().find('td[align="right"]').should('have.text','ProtocoloData')
-
+})
+When("confirmar impressão", () =>{
+    getIframeDOM().find('input[value="Imprimir"]').click() 
+})
+Then("uma seção para imprimir é exibida", () => {
+    cy.get('#content').should('exist')
 })

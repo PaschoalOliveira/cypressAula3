@@ -10,7 +10,7 @@ Feature: Fale conosco
 
 #RN01: É possível solicitar nova ligação de Energia 
     Scenario: Solicitando Nova Ligação
-        And preencher as informações pessoais
+        When preencher as informações pessoais
             | contrato | nome        | e-mail               |
             | 11765111 | Vilma Souza | vilminha@hotmail.com |
         And preencher as informações de localização
@@ -19,7 +19,8 @@ Feature: Fale conosco
         And preencher a mensagem referente ao "<assunto>"
             | assunto      | mensagem                                         |
             | Ligação nova | Desejo uma nova ligação de energia no meu imóvel |
-        When confirmar envio da mensagem
+		And validar as informações
+		And confirmar envio da mensagem
         Then é redirecionado para o Portal do Credenciado
 
 #RN02: É necessário preencher os campos que são obrigatórios 
@@ -28,9 +29,9 @@ Feature: Fale conosco
         When confirmar envio da mensagem
         Then são indicados os campos obrigatórios
 
-#RN03: Adicionar vários anexos
+#RN03: Envio com mensagem com anexos
     Scenario: Adicionando anexos 
-        And preencher as informações pessoais
+        When preencher as informações pessoais
             | contrato | nome        | e-mail               |
             | 11765111 | Vilma Souza | vilminha@hotmail.com |
         And preencher as informações de localização
@@ -40,7 +41,14 @@ Feature: Fale conosco
             | assunto      | mensagem                                         |
             | Ligação nova | Desejo uma nova ligação de energia no meu imóvel |
         And adicionar anexos
-        When confirmar envio da mensagem
+		And validar as informações
+        And confirmar envio da mensagem
+        Then é redirecionado para o Portal do Credenciado
+		
+#RN04: Adiconar anexos
+    Scenario: Adicionando anexos 
+        When adicionar anexos
+        And confirmar envio da mensagem
         Then é redirecionado para o Portal do Credenciado
 
 
@@ -61,18 +69,13 @@ Feature: Irregularidade
 #RN02 Denunciar irregularidade
     Scenario: Denunciando Irregularidade  
         When confirmar envio da mensagem
-        Then é exibida uma mensagem de confirmação
-        And é exibido o protocolo 
-        And é exibida a data da denúncia 
+        Then é exibida uma mensagem de confirmação, o protocolo e a data da denúncia 
         
 #RN3 Imprimir denúncia de irregularidade
     Scenario: Imprimindo denúncia de Irregularidade  
         When confirmar envio da mensagem
-        Then é exibida uma mensagem de confirmação
-        And é exibido o protocolo 
-        And é exibida a data da denúncia 
-        And é exibido a seção imprimir
-        And é exibido a seção para ser impressa 
+        And é exibida uma mensagem de confirmação
+        Then uma seção para imprimir é exibida 
 
 Feature: Locais de pagamento
 
@@ -80,7 +83,7 @@ Feature: Locais de pagamento
     DESEJO saber os locais de pagamento próximos
     PARA realizar pagamento 
 
-    @focus
+
     Background: 
         Given acesso ao sistema da COELBA
         And acesso a seção Onde Pagar Sua Conta
@@ -89,4 +92,4 @@ Feature: Locais de pagamento
         When preencho a localização
             | cidade     | bairro          |
             | Alagoinhas | Santa Terezinha |
-        Then consigo ver os locais de pagamento mais próximos
+        Then os locais de pagamento mais próximos são  exibidos 

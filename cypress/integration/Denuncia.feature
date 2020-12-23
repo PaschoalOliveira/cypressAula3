@@ -15,15 +15,11 @@ Feature: Irregularidade
 #RN02 Denunciar irregularidade
     Scenario: Denunciando Irregularidade  
         When confirmar envio da mensagem
-        Then é exibida uma mensagem de confirmação
-        And é exibido o protocolo 
-        And é exibida a data da denúncia 
-        
+        Then é exibida uma mensagem de confirmação, o protocolo e a data da denúncia 
+    @focus    
 #RN3 Imprimir denúncia de irregularidade
     Scenario: Imprimindo denúncia de Irregularidade  
-        When confirmar envio da mensagem
-        Then é exibida uma mensagem de confirmação
-        And é exibido o protocolo 
-        And é exibida a data da denúncia 
-        And é exibido a seção imprimir
-        And é exibido a seção para ser impressa 
+        And confirmar envio da mensagem
+        And é exibida uma mensagem de confirmação
+        When confirmar impressão
+        Then uma seção para imprimir é exibida  
