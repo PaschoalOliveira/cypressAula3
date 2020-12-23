@@ -11,7 +11,7 @@ Feature: Irregularidade
         And preencher as informações
             | Endereço | Número | Bairro    | Cidade   | Ponto_de_Referência | Texto_para_Denúncia                |
             |  Rua J   | 08     | Boa Vista | Salvador | perto da escola X   | Estão fazendo gato na minha energia|
-
+    @focus
 #RN02 Denunciar irregularidade
     Scenario: Denunciando Irregularidade  
         When confirmar envio da mensagem
