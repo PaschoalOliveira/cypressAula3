@@ -1,0 +1,31 @@
+{
+  "name": "cypressaula3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "mocha": "^8.2.1"
+  },
+  "devDependencies": {
+    "cypress": "^6.2.0",
+    "cypress-cucumber-preprocessor": "^4.0.0",
+    "cypress-xpath": "^1.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaschoalOliveira/cypressAula3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PaschoalOliveira/cypressAula3/issues"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
+  "homepage": "https://github.com/PaschoalOliveira/cypressAula3#readme"
+}
