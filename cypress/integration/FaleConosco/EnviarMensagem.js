@@ -10,5 +10,5 @@ And("avançar na solicitação", () => {
     cy.get('button[id="edit-submit"]').click()
 })
 Then("a mensagem é enviada", () => {
-    cy.get('div[class="alert alert-success alert-dismissible"]').should('have.value','Sua mensagem foi enviada.')
+    cy.get('div[class="alert alert-success alert-dismissible"]').should('exist')
 })
