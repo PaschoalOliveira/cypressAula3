@@ -27,7 +27,7 @@ Feature: Fale conosco
     #RN03: É necessário preencher campos obrigatórios
     Scenario Outline: Campos obrigatórios vazios
         And preencher as informações "<nome>", "<email>", "<assunto>" e "<mensagem>"
-        When tento enviar a mensagem
+        When prosseguir no envio
         Then aparece uma mensagem de alerta
         Examples: 
             | nome       | email                 | assunto | mensagem                |
@@ -35,13 +35,13 @@ Feature: Fale conosco
             | Celebmuveu |                       | Licensa | Licensa para unicórnios |
             | Celebmuveu | onering@mordor.com.nz |         | Licensa para unicórnios |
             | Celebmuveu | onering@mordor.com.nz | Licensa |                         |
-	 
+
     #RN04: É necessário preencher o email corretamente
     Scenario Outline: Validar se o campo do email cumpre os requisitos
-     When preencho as informações "<nome>", "<email>", "<assunto>" e "<mensagem>" de forma incorreta  
-     And confirmo o envio da mensagem
-	 Then procuro pela mensagem  "<mensagemError>"
+     When preencher as informações "<nome>", "<email>", "<assunto>" e "<mensagem>" de forma incorreta  
+     And confirmar o envio da mensagem
+	 Then procuro pela mensagem "<mensagemError>"
          Examples:
             | nome  | email        | assunto | mensagem                       | mensagemError                                                               |
-            | Perry | ornitorrinco | Pedido  | Pedido de atestado medico      | Inclua um "@" no endereço de e-mail. ornitorrinco está com um "@" faltando. |
-            | Anel  | Anel@        | Licensa | Licenciatura para usar o mouse | Insira uma parte depois de "@". anel@ está incompleto.                      |
+            | Perry | ornitorrinco | Pedido  | Pedido de atestado medico      | Insira um "@" no endereço de e-mail. ornitorrinco está com um "@" faltando. |
+            | Anel  | Anel@        | Licensa | Licenciatura para usar o mouse | Insira uma parte depois de "@". Anel@ está incompleto.                      |
