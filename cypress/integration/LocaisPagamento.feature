@@ -6,7 +6,7 @@ Feature: Locais de pagamento
 
     Background: 
         Given acesso ao sistema da COELBA
-        And acesso a seção "Onde Pagar Sua Conta"
+        And acesso a seção de "Onde Pagar Sua Conta"
 
     Scenario: Vendo locais de pagamento
         When preencho a localização

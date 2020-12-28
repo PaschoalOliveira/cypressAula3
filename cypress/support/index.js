@@ -20,4 +20,4 @@ import './commands'
 // require('./commands')
 
 //cypress xpath
-require('cypress-xpath'); 
+//require('cypress-xpath'); 

@@ -6,7 +6,7 @@ Feature: Fale conosco
     
     Background: 
         Given acesso ao sistema da COELBA
-        And acesso a seção "Fale Conosco"
+        And acesso a seção de "Fale Conosco"
     @focus
 #RN01: É possível solicitar nova ligação de Energia 
     Scenario: Solicitando Nova Ligação
