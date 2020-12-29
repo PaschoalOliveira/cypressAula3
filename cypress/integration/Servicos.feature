@@ -11,14 +11,13 @@ Feature: Serviços
     Scenario: Visualizar todos serviços disponíveis
         When tento exibir a seção Serviços
         Then os serviços disponiveis são exibidos 
-    @focus
+    
     #RN02: Apenas os serviços para condutores são exibido
     Scenario: Visualizar serviços para condutores
         When tento exibir a seção Serviços para condutores
         Then são exibidos os serviços para condutores
-    
+    @focus
     #RN03: Apenas os serviços para veículos são exibido
     Scenario: Visualizar serviços para veículos
         When tento visualizar a aba Serviços para veículos
-        Then são exibidos os serviços disponiveis
-        And somente para veículos
+        Then são exibidos os serviços para veículos

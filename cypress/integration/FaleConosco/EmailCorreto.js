@@ -7,6 +7,14 @@ And("preencher as informações {string}, {string}, {string} e {string} de forma
 When("confirmar o envio da mensagem", () => {
     cy.get('button[id="edit-submit"]').click()
 })
-Then("procuro pela mensagem {string} ", (mensagemError) => {
-    //validar msg de erro
+Then("procuro pela mensagem de erro", () => {
+    //só foi possível testar uma mensagem de alerta por vez 
+    //cy.on('window:alert', (msg) => {
+    //   expect(msg).to.equal('Inclua um "@" no endereço de e-mail. ornitorrinco está com um "@" faltando')
+    //})
+          
+    cy.on('window:alert', (msg) => {
+       expect(msg).to.equal('Insira uma parte depois de "@". anel@ está incompleto.')
+    })
+
 })

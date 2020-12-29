@@ -35,13 +35,13 @@ Feature: Fale conosco
             | Celebmuveu |                       | Licensa | Licensa para unicórnios |
             | Celebmuveu | onering@mordor.com.nz |         | Licensa para unicórnios |
             | Celebmuveu | onering@mordor.com.nz | Licensa |                         |
-
+    @focus
     #RN04: É necessário preencher o email corretamente
     Scenario Outline: Validar se o campo do email cumpre os requisitos
      When preencher as informações "<nome>", "<email>", "<assunto>" e "<mensagem>" de forma incorreta  
      And confirmar o envio da mensagem
-	 Then procuro pela mensagem "<mensagemError>"
+	 Then procuro pela mensagem de erro
          Examples:
-            | nome  | email        | assunto | mensagem                       | mensagemError                                                               |
-            | Perry | ornitorrinco | Pedido  | Pedido de atestado medico      | Insira um "@" no endereço de e-mail. ornitorrinco está com um "@" faltando. |
-            | Anel  | Anel@        | Licensa | Licenciatura para usar o mouse | Insira uma parte depois de "@". Anel@ está incompleto.                      |
+            | nome  | email        | assunto | mensagem                       | 
+           # | Perry | ornitorrinco | Pedido  | Pedido de atestado medico      | 
+            | Anel  | Anel@        | Licença | Licenciatura para usar o mouse | 
